@@ -24,7 +24,7 @@ npm install
 ### Prerequisites
 I would recommend [visual studio code](https://code.visualstudio.com/) for inspecting 
 also for the Database Connection you need [Xampp](https://www.apachefriends.org/de/download.html)
-and if you want to open the App use Expo, which you can get from the Play Store
+and if you want to open the App use [Expo](https://expo.io/), which you can get from the Play Store
 
 
 ### Installing

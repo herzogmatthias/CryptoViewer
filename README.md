@@ -1,10 +1,10 @@
 # CryptoViewer
 
 Server + Client for watching current Crypto Currencies.
-App is written with React Native
-Client is written with React JS
-Server and Services are written with Node JS
-The Database is a MySQL Database
+*App is written with React Native
+*Client is written with React JS
+*Server and Services are written with Node JS
+*The Database is a MySQL Database
 
 ## Getting Started
 

@@ -24,7 +24,7 @@ npm install
 ### Prerequisites
 I would recommend [visual studio code](https://code.visualstudio.com/) for inspecting 
 also for the Database Connection you need [Xampp](https://www.apachefriends.org/de/download.html)
-and if you want to open the App use Expo, you can get it from the Play Store
+and if you want to open the App use Expo, which you can get from the Play Store
 
 
 ### Installing
@@ -47,7 +47,9 @@ open all four files in different Windows
 npm start
 ```
 2. Go to FetchCryptoData
+
 there are three Files so open 3 command prompts(in VS Code CTRL + ö and press the + button)
+
 index.js and client.js is for writting into the database so that there is data even when no one is connected to the Server
 in index.js the Data will be fetched in then it gets written into the database
 Command Prompt 1

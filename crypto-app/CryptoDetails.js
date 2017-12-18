@@ -73,7 +73,7 @@ export default class CryptoDetails extends Component {
     var cryptoName = this.props.navigation.state.params.CurrencyDetails.name;
     axios
       .get(
-        "http://172.18.251.55:8000/getExactCurrency/" +
+        "http://192.168.0.9:8000/getExactCurrency/" +
         this.props.navigation.state.params.CurrencyDetails.name
       )
       .then(res => {

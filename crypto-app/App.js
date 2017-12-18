@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ListView, FlatList, ActivityIndicator, StatusBar, AppRegistry} from 'react-native';
+import { StyleSheet, Text, View, ListView, FlatList, ActivityIndicator, StatusBar, AppRegistry, TextInput} from 'react-native';
 import io from 'socket.io-client';
-import{Button} from 'react-native-elements'
+import{Button, SearchBar} from 'react-native-elements'
 import axios from 'axios'
 import Expo from 'expo';
 import { StackNavigator} from 'react-navigation';
 import CryptoDetails from './CryptoDetails.js';
-let socket = io('http://10.0.0.2:1233');
+let socket = io('http://192.168.0.9:1233');
 
 class MainPage extends React.Component {
   constructor(props){
@@ -14,7 +14,8 @@ class MainPage extends React.Component {
     this.state = {
       cryptoList : [],
       isLoading : true,
-      EurExchange : 0
+      EurExchange : 0,
+      searchString : ''
     }
     
   }
@@ -28,7 +29,7 @@ class MainPage extends React.Component {
   };
   componentWillMount(){
     if(!socket.connected){
-      socket = io.connect('http://172.18.251.55:1233')
+      socket = io.connect('http://192.168.0.9:1233')
     }
     axios.get('https://api.fixer.io/latest?base=USD')
     
@@ -53,9 +54,18 @@ class MainPage extends React.Component {
     socket.close();
     
 }
+updateValue(text){
+  console.log(text)
+  
+}
+isValid(item){
+  return (item.name.toUpperCase().indexOf(this.state.searchString.toUpperCase()))=== 0;
+}
   render() {
     const { navigate } = this.props.navigation;
     this.getCryptoData = this.getCryptoData.bind(this)
+    this.isValid = this.isValid.bind(this)
+    this.updateValue = this.updateValue.bind(this)
     if (this.state.isLoading) {
       return (
         <View>
@@ -71,21 +81,26 @@ class MainPage extends React.Component {
     return (
       
       <View style={styles.v_container}>
-        
+      
       <StatusBar hidden = {true} translucent={false} />
-        <FlatList data={this.state.cryptoList} style={styles.container} 
+        <SearchBar lightTheme placeholder='Search after Currency' onChangeText={(text) => {
+          this.setState({searchString : text})}}/>
+        <FlatList data={this.state.cryptoList} extraData={this.state.searchString} style={styles.container} 
          renderItem={({item}) =>
-         <View style={styles.row}>
-               <Text style={styles.row_name}>{item.name} {"\n"}</Text>
-               <Text style={styles.row_price_usd}>{item.price_usd}$</Text>
-               <Text style={styles.row_price_eur}>{item.price_usd * this.state.EurExchange}€</Text>
-               <Button
-                small
-                buttonStyle={{backgroundColor: '#03A9F4'}}
-                title='Details'
-                onPress={()=> navigate('Details', {CurrencyDetails : item}) } />
+         {if(this.isValid(item)){
+          return (<View style={styles.row}>
+          <Text style={styles.row_name}>{item.name} {"\n"}</Text>
+          <Text style={styles.row_price_usd}>{item.price_usd}$</Text>
+          <Text style={styles.row_price_eur}>{item.price_usd * this.state.EurExchange}€</Text>
+          <Button
+           small
+           buttonStyle={{backgroundColor: '#03A9F4'}}
+           title='Details'
+           onPress={()=> navigate('Details', {CurrencyDetails : item}) } />
           </View>
-         }
+          )}
+        
+         }}
         />
       </View>
     );
@@ -96,10 +111,15 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 8,
     flexDirection: 'column', // main axis
-    justifyContent: 'center', // main axis
+    justifyContent: 'flex-start', // main axis
     alignItems: 'stretch', // cross axis
     backgroundColor: '#303F9F',
     
+  },
+  textfield : {
+    flex : 1,
+    alignItems : 'stretch',
+    justifyContent: 'flex-start', // main axis
   },
   activityIndicator: {
     flex: 1,

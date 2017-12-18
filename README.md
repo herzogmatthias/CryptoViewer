@@ -52,6 +52,7 @@ there are three Files so open 3 command prompts(in VS Code CTRL + ö and press t
 
 index.js and client.js is for writting into the database so that there is data even when no one is connected to the Server
 in index.js the Data will be fetched in then it gets written into the database
+
 Command Prompt 1
 ```
 node ./index.js
@@ -61,6 +62,7 @@ Command Prompt 2
 node ./client.js
 ```
 Command Prompt 3
+
 This is for the actual User this looks almost the same as index.js but the User only sends a get Request to get the Data
 ```
 node ./UserService.js
@@ -79,27 +81,7 @@ npm start
 * [Node JS](https://nodejs.org/en/) - REST Server and Websockets
 * [create-react-native-app](https://github.com/react-community/create-react-native-app) - App
 
+## Note
+The Web Client has no styling so feel free to add you own custom styles
 
-## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc

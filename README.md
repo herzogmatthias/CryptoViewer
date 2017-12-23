@@ -6,6 +6,7 @@ Server + Client for watching current Crypto Currencies.
 * Client is written with React JS
 * Server and Services are written with Node JS
 * The Database is a MySQL Database
+* Data is from [Coinmarketcap](https://coinmarketcap.com/)
 
 ## Getting Started
 
@@ -81,7 +82,7 @@ npm start
 * [Node JS](https://nodejs.org/en/) - REST Server and Websockets
 * [create-react-native-app](https://github.com/react-community/create-react-native-app) - App
 
-## Note
-The Web Client has no styling so feel free to add you own custom styles
+
+
 
 

@@ -41,8 +41,9 @@ create-react-native-app
 ```
 npm install -g create-react-native-app
 ```
-Start Xampp and there apache and MySQL
-open all four files in different Windows 
+Start Xampp and there apache and MySQL open the admin console of mysql and create a Database, then import the sql file given in this repo.
+
+Now open all four folders in different Windows 
 1. Go to CryptoServer and type the following in to the command prompt
 ```
 npm start
@@ -69,9 +70,16 @@ This is for the actual User this looks almost the same as index.js but the User 
 node ./UserService.js
 ```
 Now you can ether use the App or the WebClient or both they are almost the same
-For the App use crypto-App and follow these instructions [here](https://github.com/react-community/create-react-native-app#npm-start)
+For the App use crypto-App and follow these instructions [here](https://github.com/react-community/create-react-native-app#npm-start).
+Also note that, if you are planning to use the app, you have the change the Ip for connecting to the server and to the socket to your own because you can't use localhost. 
+Just type 
+```
+ipconfig
+```
+and use the ip given there
 
-For the Web Client use 
+For the Web Client you can either use the Version with react-redux or the plain Reactjs Version both have the same functionalities
+you can start them with following command
 ```
 npm start
 ```
